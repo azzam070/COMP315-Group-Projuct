@@ -35,7 +35,7 @@ SELECT
     orders.quantity,
     orders.total_price,
     orders.status,
-    orders.created_at
+    CONVERT_TZ(orders.created_at, '+00:00', '+03:00') AS created_at_ksa
 FROM orders
 JOIN users ON orders.user_id = users.id
 JOIN foods ON orders.food_id = foods.id
